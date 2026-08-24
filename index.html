@@ -17,19 +17,18 @@
         <button id="muteBtn" class="btn-undo" onclick="toggleAllAudio()"><i id="muteIcon" class="fas fa-volume-up"></i></button>
       </div>
       <div class="h-center">
-        <img src="assets/img/logo.png" class="logo-header-big">
+        <img src="assets/img/logo.png" class="logo-header-big" alt="Logo">
         <span class="hotel-name-big">ZENITH CAR AGENCIA</span>
       </div>
       <div class="h-right">
-        <button class="btn-share-vip" onclick="openShare()">
-            <i class="fas fa-share-alt"></i> <span>ES: COMPARTE</span>
+        <button class="btn-share-vip" onclick="openMarketing()">
+            <i class="fas fa-external-link-alt"></i> <span>:VISITANOS</span>
         </button>
         <button id="resetBtn" class="btn-reset">NEW</button>
       </div>
     </header>
 
     <main class="solitaire-table">
-  <div class="rotate-hint-msg"><i class="fas fa-mobile-alt fa-rotate-90"></i> Gira tu celular en horizontal para mejor vista</div>
       <div class="top-row">
         <div id="stock" class="stack stock" onclick="handleStockClick()">
           <div id="stock-hint" class="stock-hint hidden">CLICK</div>
@@ -52,20 +51,12 @@
         <div id="t-6" class="stack tableau" onclick="moveToTableau(6)"></div>
       </div>
     </main>
-
-    <footer class="game-footer-branding">
-      <!-- SOLO EL CÓDIGO QR, PROTAGONISTA ABSOLUTO -->
-      <div class="qr-container-big" onclick="openMarketing()">
-        <img id="qr-img" src="assets/img/qr.png" class="qr-code-large">
-        <div class="qr-text-large">CLIC AL QR Y VISITANOS</div>
-      </div>
-    </footer>
   </div>
 
   <div id="marketing-modal" class="share-overlay hidden">
     <div class="share-box">
       <button class="close-share" onclick="this.parentElement.parentElement.classList.add('hidden')">&times;</button>
-      <img src="assets/img/logo.png" style="height:40px; margin-bottom:15px;">
+      <img src="assets/img/logo.png" style="height:40px; margin-bottom:15px;" alt="Logo">
       <h3 class="gold-text">PROMOCIONES</h3>
       <p>ES: Participa en nuestras promociones <strong>ZENITH CAR AGENCIA</strong>.</p>
       <p style="font-size: 0.8rem; margin-top:10px; font-style: italic;">EN: Join the giveaway.</p>

@@ -25,17 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const undoBtn = document.getElementById('undoBtn');
   if(undoBtn) undoBtn.onclick = undoMove;
-  
-  const qrContainer = document.querySelector('.qr-container-big');
-  if(qrContainer) {
-    qrContainer.onclick = () => {
-      openHotelOffer(); 
-    };
-  }
-  updateQR();
 });
 
-function openHotelOffer() {
+function openMarketing() {
   window.open('https://demo-autos.pideya.contact/', '_blank');
 }
 function startGame() {
@@ -195,27 +187,22 @@ function moveToTableau(idx) {
 }
 
 function moveToFoundation(suit) {
-  // Asegurarnos de que haya al menos una carta seleccionada
   if (selectedCards.length === 0) { clearSelection(); return; }
   
-  // Tomamos la última carta seleccionada (la activa)
   const card = selectedCards[selectedCards.length - 1];
   const origin = card.parentElement;
   const f = document.getElementById(`f-${suit}`);
   
-  // Verificamos que sea la única carta movida o que sea la punta de la pila y coincida el palo
   if (!f || card.nextElementSibling) { playSound('sndError'); clearSelection(); return; }
   
   const fCards = Array.from(f.children).filter(el => el.classList.contains('card'));
   let canPlace = false;
   
-  // Validación para el AS (Valor 1) en la base vacía del mismo palo
   if (fCards.length === 0) {
     if (RANK_VAL[card.dataset.rank] === 1 && card.dataset.suit === suit) {
       canPlace = true;
     }
   } else {
-    // Validación para cartas siguientes (2, 3, 4...) sobre el mismo palo
     const topCard = fCards[fCards.length - 1];
     if (card.dataset.suit === suit && RANK_VAL[card.dataset.rank] === RANK_VAL[topCard.dataset.rank] + 1) {
       canPlace = true;
@@ -338,62 +325,19 @@ function clearSelection() {
 function getSym(s) { return {'hearts':'♥','diamonds':'♦','clubs':'♣','spades':'♠'}[s]; }
 function playSound(id) { const snd = document.getElementById(id); if(snd) { snd.currentTime = 0; snd.play().catch(()=>{}); } }
 
-function updateQR() {
-  const img = document.getElementById('qr-img');
-  if (img) {
-    img.src = "assets/img/qr.png";
-  }
-}
-
-function toggleMute() { 
-  const m = document.getElementById('sndFondo'); 
-  if(!m) return;
-  m.muted = !m.muted; 
-  const muteIcon = document.getElementById('mute-icon');
-  if(muteIcon) muteIcon.className = m.muted ? "fas fa-volume-mute" : "fas fa-volume-up"; 
-  const txt = document.querySelector('.mute-text');
-  if(txt) txt.innerText = m.muted ? "AUDIO OFF / MUTE" : "AUDIO ON / MUTE";
-}
-
-function showStockHint() { const el = document.getElementById('stock-hint'); if(el) el.classList.remove('hidden'); }
+function showStockHint() { const el = document.getElementById('stock-hint'); if(el) el.classList.et ? el.classList.remove('hidden') : el.classList.remove('hidden'); }
 function hideStockHint() { const el = document.getElementById('stock-hint'); if(el) el.classList.add('hidden'); }
 
-function openShare() {
-    const shareModal = document.getElementById('share-modal');
-    if(shareModal) shareModal.classList.remove('hidden');
-    const shareUrl = "https://hotelsandy.com";
-    const msg = encodeURIComponent("¡Mira mi juego de Solitario VIP personalizado!");
-    
-    const wa = document.getElementById('share-wa');
-    const fb = document.getElementById('share-fb');
-    const tw = document.getElementById('share-tw');
-    
-    if(wa) wa.href = `https://wa.me/?text=${msg}%20${shareUrl}`;
-    if(fb) fb.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-    if(tw) tw.href = `https://twitter.com/intent/tweet?text=${msg}&url=${shareUrl}`;
-}
-
-function closeShare() {
-    const shareModal = document.getElementById('share-modal');
-    if(shareModal) shareModal.classList.add('hidden');
-}
 let isGlobalMuted = false;
 
 function toggleAllAudio() {
   isGlobalMuted = !isGlobalMuted;
-  
-  // Silencia o activa todas las etiquetas <audio> del juego
   const audioTags = document.querySelectorAll('audio');
   audioTags.forEach(audio => {
     audio.muted = isGlobalMuted;
   });
-  
-  // Cambia el ícono del botón entre volumen alto y silencio
   const muteIcon = document.getElementById('muteIcon');
   if (muteIcon) {
     muteIcon.className = isGlobalMuted ? "fas fa-volume-mute" : "fas fa-volume-up";
   }
-}
-function openMarketing() {
-  window.open('https://demo-autos.pideya.contact/', '_blank');
 }
