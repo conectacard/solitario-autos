@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <<div id="game-container">
+  <div id="game-container">
     <header class="game-header-branding">
       <div class="h-left">
         <button id="undoBtn" class="btn-undo"><i class="fas fa-undo"></i> UNDO</button>
@@ -53,6 +53,13 @@
     </main>
 
     <footer class="game-footer-branding">
+      <!-- CÓDIGO QR PRIMERO (MÁXIMA PRIORIDAD DE VENTA) -->
+      <div class="qr-container-big" onclick="openMarketing()">
+        <img id="qr-img" src="assets/img/qr.png" class="qr-code-large">
+        <div class="qr-text-large">SCAN O CLIC</div>
+      </div>
+
+      <!-- TEXTO DE PROMOCIONES DESPUÉS -->
       <div class="luxury-promo-box">
         <div class="promo-title">VISITANOS | CONOCE NUESTRAS PROMOCIONES</div>
         <div class="promo-main">PROMOCIONES DE TEMPORADA</div>
@@ -61,11 +68,8 @@
             <span><i class="fas fa-phone"></i> +52 (55) 1234-5678 | +1 (800) ZENITH-CAR</span>
         </div>
       </div>
-
-      <div class="qr-container-big" onclick="openMarketing()">
-        <img id="qr-img" src="assets/img/qr.png" class="qr-code-large">
-        <div class="qr-text-large">SCAN O CLIC</div>
-      </div>
+    </footer>
+  </div>
 
   <div id="marketing-modal" class="share-overlay hidden">
     <div class="share-box">
@@ -100,7 +104,6 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
 
   <script>
-    // CREDENCIALES OBTENIDAS DE TU CDN OFICIAL
     const firebaseConfig = {
       apiKey: "AIzaSyDIQfbFvWCRW0SWIKo0QB9bRXswUXFpxe0",
       authDomain: "solitario-hotel.firebaseapp.com",
