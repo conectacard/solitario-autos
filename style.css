@@ -41,7 +41,7 @@ body { font-family: 'Segoe UI', sans-serif; background: #111; height: 100vh; ove
 .card.back .logo-back { display: block; width: 70%; height: 70%; margin: 15%; object-fit: contain; }
 .card:not(.back) .logo-back { display: none !important; }
 .card:not(.back) .card-content { display: block; width: 100%; height: 100%; position: relative; background: #fff !important; }
-.rank-txt { font-weight: 700; font-size: 1.1rem; padding: 3px 6px; line-height: 1; position: absolute; top: 0; left: 0; z-index: 10; background: #ffffff; width: 100%; text-align: left; }
+.rank-txt { font-weight: 700; font-size: 1.1rem; padding: 3px 6px; line-height: 1; position: absolute; top: 0; left: 0; z-index: 10; background: #ffffff; width: 100%; text-align: left; text-shadow: 0 0 2px #fff, 0 0 2px #fff; }
 .guest-img { width: 90%; height: 60%; object-fit: cover; position: absolute; bottom: 4px; left: 5%; border: 1px solid #eee; border-radius: 4px; z-index: 2; }
 .waste .card { top: 0; left: 0; background: #fff !important; }
 
