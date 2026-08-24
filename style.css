@@ -185,35 +185,48 @@ body { font-family: 'Segoe UI', sans-serif; background: #111; height: 100vh; ove
     gap: 5px !important;
   }
 }
-/* ADAPTACIÓN AUTOMÁTICA PARA CELULAR EN HORIZONTAL (LANDSCAPE) */
-@media (max-height: 500px) and (orientation: landscape) {
+/* ADAPTACIÓN LIMPIA Y SCROLLABLE PARA HORIZONTAL (LANDSCAPE) */
+@media (orientation: landscape) {
   body {
-    overflow: auto !important; /* Permite un pequeño desplazamiento si hace falta */
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+  #game-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
   }
   .solitaire-table {
     height: auto !important;
-    min-height: calc(100vh - 90px) !important;
-    padding: 5px !important;
+    min-height: 75vh !important;
+    padding: 10px !important;
+    flex: 1;
   }
   .game-header-branding {
-    height: 45px !important;
-    padding: 0 10px !important;
+    height: 50px !important;
+    padding: 0 15px !important;
   }
   .logo-header-big {
-    height: 30px !important;
+    height: 32px !important;
   }
   .hotel-name-big {
-    font-size: 0.7rem !important;
+    font-size: 0.75rem !important;
   }
   .game-footer-branding {
-    flex-direction: row !important; /* Vuelve a poner el footer de lado a lado para aprovechar el ancho */
-    min-height: 60px !important;
-    padding: 5px 15px !important;
+    flex-direction: row !important;
+    height: auto !important;
+    min-height: 65px !important;
+    padding: 8px 20px !important;
+    gap: 15px !important;
   }
   .qr-code-large {
-    height: 45px !important; /* Hace el QR compacto para que quepa perfecto en horizontal */
+    height: 48px !important;
   }
   .qr-text-large {
     font-size: 0.65rem !important;
   }
 }
+.rotate-hint-msg { text-align: center; color: var(--oro); font-size: 0.65rem; font-weight: bold; background: rgba(0,0,0,0.6); padding: 3px; border-radius: 4px; margin-bottom: 5px; }
+@media (orientation: landscape) { .rotate-hint-msg { display: none !important; } }
