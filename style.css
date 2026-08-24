@@ -185,3 +185,35 @@ body { font-family: 'Segoe UI', sans-serif; background: #111; height: 100vh; ove
     gap: 5px !important;
   }
 }
+/* ADAPTACIÓN AUTOMÁTICA PARA CELULAR EN HORIZONTAL (LANDSCAPE) */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    overflow: auto !important; /* Permite un pequeño desplazamiento si hace falta */
+  }
+  .solitaire-table {
+    height: auto !important;
+    min-height: calc(100vh - 90px) !important;
+    padding: 5px !important;
+  }
+  .game-header-branding {
+    height: 45px !important;
+    padding: 0 10px !important;
+  }
+  .logo-header-big {
+    height: 30px !important;
+  }
+  .hotel-name-big {
+    font-size: 0.7rem !important;
+  }
+  .game-footer-branding {
+    flex-direction: row !important; /* Vuelve a poner el footer de lado a lado para aprovechar el ancho */
+    min-height: 60px !important;
+    padding: 5px 15px !important;
+  }
+  .qr-code-large {
+    height: 45px !important; /* Hace el QR compacto para que quepa perfecto en horizontal */
+  }
+  .qr-text-large {
+    font-size: 0.65rem !important;
+  }
+}
